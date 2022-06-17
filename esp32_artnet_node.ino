@@ -46,11 +46,10 @@ void error( String message ) {
   server.send( 500, "text/plain", message );
 }
 
-bool loadConfig() {
+void loadConfig() {
   if( ! SPIFFS.begin( FORMAT_ON_FAIL ) ) {
     error( "Failed to load config" );
   }
-
 }
 
 /**
@@ -126,22 +125,22 @@ bool handleFileRead( String path ) {
     file.close();
     return true;
   }
-  // else if( path == "/r" ) {
-  //   digitalWrite( LED_RED, !digitalRead( LED_RED ) );
-  //   return true;
-  // }
-  // else if( path == "/g" ) {
-  //   digitalWrite( LED_GREEN, !digitalRead( LED_GREEN ) );
-  //   return true;
-  // }
-  // else if( path == "/b" ) {
-  //   digitalWrite( LED_BLUE, !digitalRead( LED_BLUE ) );
-  //   return true;
-  // }
-  // else if( path == "/y" ) {
-  //   digitalWrite( LED_YELLOW, !digitalRead( LED_YELLOW ) );
-  //   return true;
-  // }
+  else if( path == "/r" ) {
+    digitalWrite( LED_RED, !digitalRead( LED_RED ) );
+    return true;
+  }
+  else if( path == "/g" ) {
+    digitalWrite( LED_GREEN, !digitalRead( LED_GREEN ) );
+    return true;
+  }
+  else if( path == "/b" ) {
+    digitalWrite( LED_BLUE, !digitalRead( LED_BLUE ) );
+    return true;
+  }
+  else if( path == "/y" ) {
+    digitalWrite( LED_YELLOW, !digitalRead( LED_YELLOW ) );
+    return true;
+  }
   return false;
 }
 
