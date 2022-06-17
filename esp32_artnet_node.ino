@@ -2,7 +2,7 @@
  * @file esp32_artnet_node.ino
  * @author Mikita Stankiewicz (itsmikita@gmail.com)
  * @brief My take on Art-Net to DMX Node based on ESP32.
- * @version 0.6
+ * @version 0.7
  * @date 2022-06-10
  * 
  * @copyright Copyright (c) 2022 Mikita Stankiewicz
@@ -17,7 +17,7 @@
 #include <ESPmDNS.h>
 #include <ArtnetnodeWifi.h>
 
-#define FIRMWARE_VERSION "v0.6"
+#define FIRMWARE_VERSION "v0.7"
 #define FORMAT_ON_FAIL true
 
 #define LED_RED 23 
@@ -234,4 +234,3 @@ void loop() {
   artnetnode.read(); // we call the read function inside the loop
   server.handleClient(); // Web Server
 }
-
